@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8"  
+    <meta name="vieport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+     <title>test.zmdx.ausgetrixxt.at</title>
+     <link rel="manifest" href="manifest.jason">
+
+     <style>
+.amk {
+  
+  margin-left: 100px;
+  margin-top: 1300px;
+}
+
+
+.jebote {
+  
+  margin-left: 500px;
+  margin-block-end: 1000px;
+}
+
+
+     </style>
+
+
+<script>
+
+</script> 
+
+  
+
+<script>
+// Compare sum of the circles radius with distance betwen their centers. 
+// You can use distance squared since your're just comparing the values. 
+// No need to find the square root, which is an expensive calculation.
+
+var circle1 = $("#circle1");
+var circle2 = $("#circle2");
+
+var r1 = circle1.width() / 2;
+var r2 = circle2.width() / 2;
+
+var x2 = 300;
+var y2 = 150;
+
+var x1 = x2 - r1 + r2;
+var y1 = y2 - r1 + r2;
+
+var d1 = (r1 + r2) * (r1 + r2);
+
+TweenLite.set(circle2, { x: x2, y: y2 });
+
+Draggable.create(circle1, {  
+  onDrag: function() {
+            
+    var dx = x1 - this.x;
+    var dy = y1 - this.y;
+    var d2 = dx * dx + dy * dy;
+    
+    d2 < d1 ? circle2.addClass("hit") : circle2.removeClass("hit");
+  }
+});
+
+</script>
+
+    </head>
+
+
+ <body>
+
+  <div id="circle1">Drag Me</div>
+  <div id="circle2"></div>
+
+ </body>
+
+
+
+
+
+
+</html>
